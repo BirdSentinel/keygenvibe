@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>KeygenVibe</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <canvas id="matrixbg"></canvas>
+        <div class="center-ascii">
+            <pre class="ascii-element">
+            </pre>
+        </div>
+    </body>
+    <script src="asciiMorph.js"></script>
+    <script src="asciiArts.js"></script>
+    <script src="background.js"></script>
+    <script>
+        var element = document.querySelector('pre');
+        AsciiMorph(element, {x: 50,y: 25});
+
+        AsciiMorph.render(asciis[0]);
+
+        var currentIndex = 2;
+
+        setTimeout(function() {
+            AsciiMorph.morph(asciis[1]);
+        }, 1000);
+
+        setInterval(function() {
+            AsciiMorph.morph(asciis[currentIndex]);
+            currentIndex++;
+            currentIndex%= asciis.length;
+        }, 3000);
+    </script>
+</html>
